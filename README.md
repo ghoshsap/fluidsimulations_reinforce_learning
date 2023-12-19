@@ -1,5 +1,5 @@
-compute.sh - submit script
+compute.sh - shell submit script
 
-resnet_50.py - implements resnet encode and flattened latent space 
+resnet_50.py - implements resnet encoder and flattened latent space 
 
-server.py - simulation server
+server.py - FEniCS simulation server
