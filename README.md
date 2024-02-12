@@ -7,3 +7,8 @@ server.py - FEniCS simulation server
 server_fenics_pickle.py - FEniCS simulation server with streaming communication socket
 
 clip_action.py - clips action between desired action ranges
+
+
+For running on a ACCESS(anvil) server- 
+
+sbatch -J "train" compute.sh 1234
