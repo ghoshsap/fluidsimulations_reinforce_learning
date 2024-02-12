@@ -1,3 +1,4 @@
+import argparse
 from mpi4py import MPI
 import socket, pickle
 
@@ -11,6 +12,11 @@ comm = MPI.comm_world
 rank = MPI.rank(comm)
 
 set_log_level(50)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--port", type=int, default=8888, help="Port number for socket connection")
+
+args = parser.parse_args()
 
 # Test to find appropriate solver
 if not has_linear_algebra_backend("PETSc") and not has_linear_algebra_backend("Tpetra"):
@@ -374,9 +380,9 @@ while True:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             print("Socket successfully created")
 
-            port = 8888
-            s.bind(('localhost', port))
-            print("Socket binded to %s" % (port), flush = True)
+            # port = 8888
+            s.bind(('localhost', args.port))
+            print("Socket binded to %s" % (args.port), flush = True)
 
             s.listen(1)
             print("Socket is listening", flush = True)
